@@ -1,0 +1,28 @@
+1. 전처리기 (preprocessor)
+    => 컴파일하기 전에 소스 코드에 특정 작업을 수행하는 프로그램입니다.
+
+
+2. #include
+    => 헤더 파일을 포함하는 역할을 합니다.
+
+
+3. #define
+    => 매크로 정의 및 치환하는 역할을 합니다.
+    => #define MAX 10
+    => #define SH
+
+
+4. #if / #ifndef / #endif..
+    4-1. #if -> 만약 조건이 참이라면
+    4-2. #ifdef -> 만약 정의되어 있다면
+    4-3. #ifndef -> 만약 정의되어 있지 않다면
+    4-4. #define -> 정의해라
+    4-5. #endif -> 조건부 처리의 끝
+
+
+5. 헤더 가드 + 전처리기
+    => #ifndef CALCUL_H
+    => #define CALCUL_H
+    => ...
+    => #endif
+    => ifndef는 정의되어 있다면 false입니다. -> #endif까지 코드는 건너뜁니다.
