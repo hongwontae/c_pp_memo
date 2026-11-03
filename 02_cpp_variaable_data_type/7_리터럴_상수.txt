@@ -1,0 +1,42 @@
+1. 리터럴 상수
+    1-1. 소스 코드에 직접 작성한 고정된 값입니다.
+    1-2. 리터럴은 고유한 자료형을 가지고 있습니다.
+    1-3. 리터럴 자체를 변경할 수 없습니다. -> 10 = 20; -> x
+
+
+2. C++ 리터럴 종류
+    2-1. 10 -> int
+    2-2. 3.14 -> double
+    2-3. 'A' -> char
+    2-4. "Hello" -> const char[6]
+    2-5. true, false -> boolean
+    2-6. nullptr -> std :: nullptr_t
+
+
+3. C++ 정수 리터럴 진법 표현 방법
+    3-1. int a = 10; -> int
+    3-2. int b = 0b1010 -> 2진수로 표현
+    3-3. int c = 012 -> 8진수로 표현
+    3-4. int d = 0xA -> 16진수로 표현
+
+
+4. C++ 정수 리터럴 접미사
+    => 정수 뒤에 붙는 L, LL, U는 리터럴 접미사라고 부릅니다.
+    4-1. auto a = 10;    -> int
+    4-2. auto b = 10L;   -> long
+    4-3. auto c = 10LL;  -> long long
+    4-4. auto d = 10U;   -> unsigned int
+    4-5. auto e = 10ULL; -> unsigned long long
+
+
+5. 부동 소수점 리터럴
+    5-1. double c = 1.25e2;
+        => e는 10의 거듭제곱 10^2 -> 1.25 * 10^2 = 125
+    5-2. auto a = 3.14;     -> double
+    5-3. auto b = 3.14f;    -> float
+    5-4. auto c = 3.14L;    -> long double
+
+
+6. 문자 & 문자열 리터럴
+    6-1. 문자는 작은 따옴표를 사용합니다.
+    6-2. 문자열은 쌍 따옴표를 사용합니다.
