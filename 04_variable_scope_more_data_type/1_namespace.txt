@@ -1,0 +1,80 @@
+1. namespace
+    => 식별자(변수, 함수, 클래스 등)의 이름이 서로 충돌하지 않도록 이름을 구분하는 영역을 만드는 기능입니다.
+    => namespace는 독립적인 메모리 공간이 아닙니다.
+    => 컴파일러가 이름을 구분하고 탐색하는데 사용하는 언어적 구조입니다.
+    => namespace 정의는 전역 namespace 스코프 | 다른 namespace 스코프에서만 가능합니다.
+
+
+2. 하나의 영역에서 같은 식별자를 사용한다면 -> 컴파일 에러가 발생합니다.
+    => 이 문제를 해결하는 것이 namespace입니다.
+
+
+3. namespace 선언하기
+
+    namespace Player
+    {
+        void print()
+        {
+            std::cout << "Player";
+        }
+    }
+
+    namespace Monster
+    {
+        void print()
+        {
+            std::cout << "Monster";
+        }
+    }
+
+
+4. 범위 지정 연산자 (::)
+    4-1. 왼쪽에 지정한 영역에서 오른쪽 이름을 찾도록 하는 연산자입니다.
+    4-2. std :: cout -> 접근하려는 영역은 std, 해당 namespace에서 찾으려는 변수는 cout
+
+
+5. 중첩된 namespace
+    5-1. namespace 내부에 또 다른 namespace를 정의하는 것입니다.
+    5-2. 기본 구조
+    namespace A
+    {
+        namespace B
+        {
+            int value = 100;
+        }
+    }
+    5-3. 접근 
+        => A::B::value
+
+
+6. namespace에 접근하는 세 가지 방법
+    6-1. 범위 지정 연산자 사용하기
+    6-2. using 지시문
+        => using namespace name
+        => name에 속한 이름들을 범위 지정 연산자와 name없이 식별자로 사용가능
+    6-3. using 선언
+        => using Game::score;
+        => std::cout << score;
+        => Game의 score 변수는 범위 지정 연산자 없이 식별자로 사용가능
+    => 지시문은 전부, 선언은 하나만
+
+
+7. namespace 재개방
+    7-1. namespace 재개방 코드
+        namespace Game
+        {
+            int score = 100;
+        }
+
+        namespace Game
+        {
+            int level = 5;
+        }
+    7-2. 같은 스코프에서 같은 이름으로 namespace를 다시 열면 
+            기존 namespace에 새로운 선언을 추가하는 것입니다.
+            => Game이라는 namespace에서 score과 level이 존재한다는 것
+
+
+8. namespace alias
+    8-1. namespace Player = Company::Game::Character::Player;
+        => std::cout << Player::hp;

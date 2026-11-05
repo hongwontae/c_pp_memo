@@ -1,0 +1,39 @@
+1. auto 키워드
+    1-1. 변수를 초기화할 때 초기화 표현식을 바탕으로 변수의 자료형을 컴파일러가 자동으로 추론해주는 키워드입니다.
+    
+
+2. auto는 컴파일 시점에 자료형을 결정합니다.
+    2-1. auto a = 10;
+    2-2. 접미사 없는 십진수 정수 리터럴 -> int
+    2-3. 컴파일러는 a를 int로 결정
+    2-4. int a = 10;
+
+
+3. auto 키워드 코드
+    auto a = 10;       // int
+    auto b = 10.0;     // double
+    auto c = 10.0f;    // float
+    auto d = 'A';      // char
+    auto e = true;     // bool
+    auto f = 10u;      // unsigned int
+    auto g = 10LL;     // long long
+
+
+4. auto 키워드를 사용했을 떄는 초기화를 하지 않으면 컴파일 에러가 발생합니다.
+
+
+5. auto는 연산 결과의 자료형을 추론합니다.
+    => char a = 1; char b = 2; auto c = a+b -> int c = 3;
+
+
+6. auto와 const 키워드
+    6-1. const int a = 10; auto b = a;
+    6-2. b는 const가 아니게 됩니다.
+        => 일반적인 값 타입의 auto 추론에서는 최상위(top-level) const가 제거됩니다.
+    6-3. const auto b = a;
+        => const를 유지하려면 명시적으로 작성해야 합니다.
+
+
+7. auto와 함수 반환 타입
+    7-1. 함수의 반환 타입도 auto로 추론할 수 있습니다.
+    7-2. 이 떄 파라미터 타입은 auto 키워드를 사용할 수 없습니다.
