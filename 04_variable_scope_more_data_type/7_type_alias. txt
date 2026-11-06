@@ -1,0 +1,12 @@
+1. type alias
+    => 기존에 존재하는 자료형에 새로운 이름을 붙이는 기능입니다.
+
+
+2. type alias를 선언하는 방법 두 가지
+    2-1. typedef int Integer;
+        => typedef: 자료형의 별칭을 선언하는 키워드 / int: 기존 자료형 / Integer: 새로운 별칭
+        => int main() {Integer a = 10;}
+    2-2. using Integer = int;
+        => 2-1과 거의 동일합니다.
+        => c++에서는 using 사용을 권장합니다.
+

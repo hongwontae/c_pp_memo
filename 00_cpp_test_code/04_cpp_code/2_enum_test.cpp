@@ -20,7 +20,9 @@ int main(void)
 {
     Color BLACK = COLOR_BLACK;
 
-    // Color RED = 3;
+    int a = COLOR_RED;
+    // 이넘 클래스는 암시적 형변환 불가
+    // int b = Fruit :: APPLE;
 
     if (BLACK == COLOR_BLACK) {
         std :: cout << "Black is mine" << std :: endl;
@@ -31,6 +33,8 @@ int main(void)
 
     std :: cout << int(apple) << std :: endl;
     std :: cout << int(banana) << std :: endl;
+
+    
 
 
     return 0;

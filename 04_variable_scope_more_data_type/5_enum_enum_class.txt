@@ -1,0 +1,58 @@
+1. enum
+    => 서로 관련된 여러 상수를 하나의 자료형으로 묶어서 관리할 수 있도록 해주는 기능입니다.
+
+
+2. enum의 기본 문법
+    2-1. enum State {
+            IDLE,
+            MOVE,
+            ATTACK,
+            DEAD
+        };
+    2-2. enum : 열거형을 정의하는 키워드, State : 새로운 열거형의 이름, 
+            IDLE, MOVE, ATTACK, DEAD: 열거자(enumerator)
+    2-3. State는 새로운 자료형의 이름으로 변수로 설정할 수 있습니다.
+        => State playerState = ATTACK;
+    2-4. 처음 열거자는 0을 할당받고 그 다음 열거자는 1.. 이렇게 1씩 증가하는 값을 할당받습니다.
+
+
+3. 열거자 정수 값 직접 저장
+    3-1. enum을 선언할 떄 열거자에게 값을 줄 수 있습니다.
+        => 이 떄 다음 열거자에게 값이 없다면 이전 열거자 값 + 1 할당받음
+    3-2. 열거자는 같은 값을 가질 있습니다.
+
+
+4. enum과 int
+    4-1. int 자료형에 enum 열거자 값을 넣을 수 있습니다.
+        => int state = ATTACK;
+    4-2. enum 자료형에 int 값을 넣을 수 없습니다.
+        => State state = 2; xx
+
+
+5. enum class
+    5-1. enum 열거자는 주변 스코프에 이름을 노출합니다.
+        => 두 enum 선언이 존재할 떄 같은 이름이 있다면 컴파일 에러가 발생합니다.
+    5-2. 두 enum 선언이 존재하고 서로 다른 이름일 떄 정수값이 같은 열거자를 비교하면 true가 반환됩니다.
+        => 서로 다른 의미의 열거형인데도 정수형으로 변환되어 비교 가능
+    
+    5-3. enum class는 이름 충돌과 잘못된 형변환을 방지하기에 유리한 열거형입니다.
+        => enum class Color {
+            RED,
+            GREEN,
+            BLUE
+        };
+
+        enum class TrafficLight {
+            RED,
+            YELLOW,
+            GREEN
+        };
+
+    5-4. RED와 GREEN은 컴파일 오류가 발생하지 않습니다.
+    5-5. enum class에 접근하려면 범위 지정 연산자를 통해서 접근합니다.
+        => Color :: RED, TrafficLight :: RED
+    
+    5-6. enum class는 정수형으로 암시적 변환이 불가능합니다.
+        => Color color = Color::RED;
+        => int a = color; // 컴파일 에러
+        => int a = static_cast<int>(color); -> 이렇게 명시적 형변환을 해야 합니다. 
