@@ -1,0 +1,12 @@
+1. const와 pointer
+    1-1. const int * ptr_1 = new int(20); / int a = 10;
+        => ptr_1 = &a;
+        => *ptr_1 = 20; xx
+        => 주소 변경은 허용됩니다. -> const가 가장 앞에 있다면 주소를 타고 들어간 값 변경 불가
+    1-2. int * const ptr_2 = new int(30); / int b = 20;
+        => *ptr_2 = 30; 
+        => ptr_2 = &b xx
+        => 값 변경은 허용하나 주소 변경은 불가능합니다.
+    
+    1-3. const int * const ptr_3 = new int (40);
+        => 주소 변경과 값 변경 모두 막습니다.
