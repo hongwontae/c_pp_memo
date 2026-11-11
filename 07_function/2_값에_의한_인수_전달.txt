@@ -1,0 +1,29 @@
+1. call by value
+    #include <iostream>
+    using namespace std;
+
+    void add(int x) {
+        x += 10;
+        cout << x << endl;
+    }
+
+    int main() {
+        int a = 10;
+        add(a);
+
+        cout << a << endl;
+    }
+
+    1-1. int a = 10 -> a에 10 정수 리터럴이 value로 초기화됩니다.
+    1-2. add(a)     -> a라는 표현식을 평가해서 10을 얻고 그 값으로 add 함수에서 int x = 10으로 초기화합니다.
+        => 이 과정에서 a와 x는 각기 다른 주소를 가진 변수입니다.
+    1-3. 이 과정은 call by value라고 합니다. -> 값이 넘어가는 상황
+
+
+2. std :: array, std :: vector
+    2-1. std :: array가 함수의 매개변수로 전달되었을 떄 
+            함수의 std :: array가 들어온 std :: array 값을 복사해서 초기화합니다.
+        => 함수 내부에서 값을 변경해도 의미가 없습니다.
+    
+    2-2. std :: vector가 함수의 매개변수로 전달되었을 때
+            일반적으로 새로운 동적 메모리를 확보하고 전달된 값들을 복사해서 넣습니다.

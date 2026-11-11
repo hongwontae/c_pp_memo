@@ -1,0 +1,18 @@
+1. call by reference
+    => 함수의 매개변수를 참조 변수로 선언하여, 호출한 쪽의 원본 변수를 직접 다룰 수 있게 하는 방식입니다.
+
+
+2. void add_reference(int& x) {x += 10;}
+    => 이 형태일 떄 매개변수가 참조 변수이고 함수를 호출할 떄 원본 변수에 바인딩됩니다.
+    => 원본 변수의 주소와 참조 변수의 주소가 같습니다.
+
+
+3. std :: array, std :: vector와 참조 변수
+    3-1. array, vector 모두 복사 비용을 피하기 위해 참조로 전달되는 경우가 많습니다.
+        => void func(std::vector<int>& vec);
+        => void func(std::array<int, 3>& arr)
+        => 읽기만 할거라면 가장 앞에 const를 붙입니다.
+    
+
+4. pointer &
+    => 함수의 매개변수가 포인터 참조 변수를 받을 때는 int * &ptr처럼 기술합니다.
