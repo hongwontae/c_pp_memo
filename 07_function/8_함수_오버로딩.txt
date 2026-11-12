@@ -1,0 +1,89 @@
+1. 함수 오버로딩
+    => 같은 이름을 가진 함수를 매개변수의 개수나 자료형을 다르게 하여 여러 개 정의하는 기능입니다.
+
+
+2. 예시
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+    => 이름이 같으나 매개변수 타입이 다르면 컴파일러가 전달된 인자를 분석해서 어떤 함수를 호출할지 결정합니다.
+    => 이 과정을 오버로딩 결정이라고하고 컴파일러 에러를 발생시키지 않습니다.
+
+
+3. 함수 오버로딩이 성립하는 조건
+    3-1. 매개변수의 개수가 다른 경우
+    3-2. 매개변수의 자료형이 다른 경우
+    3-3. 매개변수의 순서가 다른 경우
+
+
+4. 반환 자료형만 다르다고 오버로딩이 성공하지 않습니다.
+
+
+5. 함수 오버로딩과 암시적 형변환
+    5-1. C++ 컴파일러는 함수 오버로딩을 처리할 때 암시적 형변환까지 고려합니다.
+        => 인자, 매개변수 사이에서 발생하는 것입니다.
+    #include <iostream>
+
+    void print(int value) {
+        std::cout << "int\n";
+    }
+
+    void print(double value) {
+        std::cout << "double\n";
+    }
+
+    int main() {
+        print(10);
+        print(3.14);
+        print('A');
+    }
+
+    5-2. int, double, int 이 호출됩니다.
+    
+    5-3. 변환 우선순위
+        => 정확히 일치하는 자료형 > 정수 승격 또는 부동소수점 승격 > 그 밖의 표준 형변환 > 사용자 정의 형변환
+
+
+6. 함수 오버로딩에서 모호성(Ambiguity)
+    #include <iostream>
+
+    void print(int value) {
+        std::cout << "int\n";
+    }
+
+    void print(double value) {
+        std::cout << "double\n";
+    }
+
+    int main() {
+        print(10L);
+    }
+
+    6-1. 10L은 long 자료형의 정수 리터럴입니다.
+    6-2. print(long) 함수는 존재하지 않습니다.
+    6-3. 컴파일러는 다음 두 가지 변환을 고려할 수 있습니다.
+        => print(int), print(double)
+        => 두 변환 모두 일반적인 표준 변환, 판단 불가
+        => 컴파일 오류가 발생합니다.
+        => 이러한 상황을 오버로딩 모호성이라고 합니다.
+
+
+7. const int & value vs int & value
+    => 오버로딩 성공
+
+8. const int & value vs const int value 
+    => 오버로딩 실패
+
+
+9. 함수 오버로딩은 컴파일 타임에 결정됩니다.
+
+10. 함수 오버로딩과 이름 맹글링(Name Mangling)
+    => 두 함수 모두 이름이 add인데 링커 어떻게 구분할까?
+    => C++ 컴파일러는 일반적으로 함수 이름과 매개변수 자료형 등의
+             정보를 이용해 서로 다른 **심볼 이름(Symbol Name)**을 만듭니다.
+    =>이를 이름 맹글링(Name Mangling)이라고 합니다.
+
