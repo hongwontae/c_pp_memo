@@ -1,0 +1,33 @@
+1. assert
+    => 프로그램 실행 중 특정 조건이 참인지 검사하는 기능입니다.
+    => cassert 헤더에 정의된 매크로로 제공됩니다.
+
+2. assert 예시
+    int a = 10;
+
+    assert(a > 0);
+
+    std::cout << "프로그램 정상 실행" << std::endl;
+
+    return 0;
+
+    => assert(a>0)
+    => 조건이 true라면 정상 실행하여 프로그램 정상 실행을 출력하고 return 0;로 종료됩니다.
+    => 조건이 false라면 진단 메시지를 출력하고 일반적으로 std :: abort()를 통해 프로그램 비정상 종료됩니다.
+    => Assertion failed: a == 20 File: main.cpp Line: 6
+
+
+3. assert 특징
+    3-1. C++에서는 일반적으로 Debug 빌드에서 assert를 사용하고, Release 빌드에서는 비활성화할 수 있습니다.
+
+    구분	            Debug	             Release (NDEBUG 정의 시)
+    assert 실행	O	    X
+    조건 검사	O	     X
+    조건이 거짓이면	      프로그램 비정상 종료	  검사하지 않음
+    주요 목적	         오류 발견	            검사 오버헤드 제거
+
+    => NDEBUG라는 매크로가 정의되어 있으면 assert가 비활성화됩니다.
+    => release 빌드라고 해서 C++이 자동으로 assert를 비활성화하는 건 아닙니다.
+
+3-2. assert 내부에는 프로그램 동작에 반드시 필요한 코드를 넣으면 안됩니다.
+    => 조건식이 일치하지 않으면 프로그램을 즉시 종료하기 떄문입니다.
