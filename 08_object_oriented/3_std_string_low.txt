@@ -1,0 +1,65 @@
+1. std :: string
+    1-1. C++ 표준 라이브러리에서 제공하는 문자열을 저장하고 관리하기 위한 클래스 타입입니다.
+
+
+2. 분석
+    #include <string>
+
+    int main() {
+        std::string name = "hong";
+    }
+
+    2-1. std : C++ 표준 라이브러리의 네임스페이스
+    2-2. string : 문자열을 관리하는 클래스 타입
+    2-3. name : std::string 타입으로 생성한 객체
+    2-4. "hong" : 문자열 리터럴
+    => std :: string 클래스의 객체를 생성하고 문자열 "hong"로 초기화하는 코드입니다.
+    => std :: string 클래스는 생성자, 소멸자, 멤버 함수, 연산자 오버로딩 등이 정의된 클래스입니다.
+
+
+3. std::string의 생성자
+    3-1. std::string str;
+        => 빈 문자열 객체
+    3-2. std::string str("hello"); == std::string str = "hello"
+    3-3. std::string a = "hello"; std::string b = a;
+        => b는 a의 문자열 내용을 복사해서 생성된 독립적인 객체입니다.
+        => b를 수정해도 a에 영향을 주지 않습니다.
+    3-4. std::string str(5, 'A');
+        => AAAAA / 반복할 숫자, 반복할 문자를 받습니다.
+
+
+4. std :: string 멤버 함수
+    4-1. size(), length()
+        => std::string str = "hello";
+        => std::cout << str.size();   // 5
+        => std::cout << str.length(); // 5
+        => 동일한 결과를 반환합니다.
+    
+    4-2. empty()
+        => 문자열이 비어 있는지 확인합니다.
+    
+    4-3. clear()
+        => 문자열 내용을 삭제합니다.
+    
+    4-4. append(), +=
+        => std::string str = "hello";
+        => str.append(" world");
+        => std::cout << str; // hello world
+        => 문자열 뒤에 새로운 문자열을 추가합니다.
+    
+    4-5. push_back(), pop_back()
+        => 문자 하나를 추가하거나 제거합니다.
+
+
+5. 각 문자에 접근하기
+    5-1. [] 접근할 수 있습니다.
+    5-2. [] index 접근 후 변경이 가능합니다.
+    5-3. at으로 접근할 수 있습니다. str.at(2);
+        => 잘못된 index로 [] -> 정의되지 않은 동작
+        => 잘못된 at으로 () -> 예외 발생
+
+
+6. std :: string의 메모리 공간
+    => 일반적으로 heap에 저장하지만 문자열 개수가 작으면 stack에 둡니다.
+    => 메모리를 자동으로 clear합니다.
+    
