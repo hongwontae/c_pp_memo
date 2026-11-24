@@ -1,0 +1,30 @@
+1. friend
+    => 특정 외부 함수나 다른 클래스에도 private 멤버에 접근할 수 있는 권한을 부여할 수 있는 키워드입니다.
+
+
+2. Friend Function
+    2-1. 특정 클래스의 private 및 protected 멤버에 접근할 수 있도록 권한을 부여받은 함수입니다.
+    2-2. oop_8.cpp 참고
+        => 클래스 내부에서 친구 함수를 선언합니다.
+        => friend 반환형 함수_이름(args..);
+        => friend void print(const Test_2& s);
+        => print 함수는 클래스의 private 멤버에 접근할 수 있는 권한을 얻습니다.
+        => 그러나 그 클래스의 멤버 함수는 아닙니다.
+
+
+2. Friend Class
+    2-1. 특정 함수 하나가 아니라 다른 클래스 전체에 접근 권한을 부여하는 방법입니다.
+    2-2. oop_10 참고
+        => Test_3 클래스와 Teacher 클래스가 존재하고 Test_3에서 friend class Teacher를 선언합니다.
+        => 이는 Test_3 클래스가 Teacher 클래스의 
+            모든 멤버 함수에 자신의 private, protected 멤버에 접근할 수 있는 권한을 부여한 것입니다.
+
+
+3. 친구 관계 규칙
+    3-1. 친구 관계는 단방향입니다.
+    3-2. 친구 관계는 상속되지 않습니다.
+    3-3. 친구의 친구는 친구가 아닙니다.
+
+
+4. friend는 public, private, protected 중 어디에 선언하든 효과가 동일합니다.
+        

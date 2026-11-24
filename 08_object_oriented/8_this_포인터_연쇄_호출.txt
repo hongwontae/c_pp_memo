@@ -1,0 +1,42 @@
+1. this
+    => 클래스 내부에서 현재 멤버 함수를 호출한 객체를 가리키는 포인터입니다.
+
+
+2. Visual Studion oop_6 참고
+    2-1. print() 함수는 하나지만 자신을 호출한 객체의 멤버 변수를 구분합니다.
+        => 클래스 내부에서 멤버 변수나 멤버 함수를 호출할 떄 this-> 가 숨겨져 있습니다.
+        => this가 가리키는 것이 객체의 포인터이기 떄문입니다.
+    
+    2-2. this를 (*this). 해서 사용할 수 있습니다.
+
+
+3. this의 자료형은 선언한 클래스 타입의 주소입니다.
+    => Student * ptr
+
+
+4. a.print()가 실행되는 동안 &a와 this는 같은 값이 가집니다.
+
+
+5. this 사용
+    5-1. 매개변수 이름과 멤버 변수 이름이 같을 때
+        => this->age = age
+        => this->age는 객체의 멤버 변수, age는 생성자의 매개변수
+        => age = age -> 매개변수 age에 자기 자신의 값을 대입하는 것이므로 멤버 변수는 초기화되지 않습니다.
+    
+    5-2. 자기 자신을 반환할 떄 (메서드 체이닝)
+        class Student {
+        private:
+            int age = 0;
+
+        public:
+            Student& setAge(int age) {
+                this->age = age;
+                return *this;
+            }
+        };
+
+        => Student&은 Student 객체의 참조를 반환한다는 의미입니다.
+        => return *this;를 사용해서 현재 객체의 참조를 반환합니다.
+        => Student a; a.setAge(20).setAge(30).setAge(40);
+        => 자기 참조를 반환하기 떄문에 연속적으로 멤버 함수를 호출할 수 있습니다.
+    
