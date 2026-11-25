@@ -36,7 +36,7 @@
 
 2. 2의 보수 +
     2-1. 연산을 할 떄 피연산자들은 일반적으로 정수 승격된 뒤에 계산에 들어갑니다.
-        => unsigned char a = 1, b = 1, c = 1;
+        => unsigned char a = 1, b = 1;
         => unsigned char d = a + b;
         => 32비트 1인 a와 32비트 1인 b가 더해지고 unsigned라서 가장 오른쪽부터 1byte만 전달합니다.
     
