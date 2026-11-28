@@ -27,3 +27,20 @@
         => Student(20)은 임시 객체를 나타내는 rvalue(정확히는 prvalue) 표현식입니다.
         => Student&는 비const lvalue 참조이므로 이런 임시 객체에 직접 바인딩할 수 없습니다.
     
+    6-3. C++에서는 표현식을 여러 값 범주로 구분합니다.
+        => lvaue : 특정 객체를 식별할 수 있는 표현식
+        => prvalue : 값을 계산하거나 객체를 초기화하는데 사용되는 표현식 (rvalue의 한 종류)
+        => int num = 10;
+            num;       // lvalue
+            20;        // rvalue (prvalue)
+            num + 10;  // rvalue (prvalue)
+
+    6-4. 일반 참조 변수는 lvalue에 바인딩합니다.
+        => int num = 20; int& a = num; // 가능 int& b = 20;  // 컴파일 오류
+        => num은 lvalue 표현식으로 int &로 참조 가능
+        => 20은 prvalue 표현식이기 떄문에 int &로 직접 참조할 수 없습니다.
+    
+    6-5. 클래스에도 동일하게 적용됩니다.
+        => Student stu(20);  Student& a = stu; // 가능  Student& b = Student(20); // 컴파일 오류
+    
+    6-6. const lvalue는 참조가 임시 객체여도 바인딩할 수 있도록 허용합니다.
